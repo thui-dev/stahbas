@@ -1,28 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from . import models
 from datetime import datetime
 
 from django.http import HttpResponse, HttpResponseRedirect
 
-##### Artificial Inteligence
-from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
-import numpy as np
-import torch
-###############
-
 def Ai_Str_Cmp(input1, input2):
-    s1 = input1
-    s2 = input2
-    model_name = "ruanchaves/bert-base-portuguese-cased-assin2-similarity"
-    model = AutoModelForSequenceClassification.from_pretrained(model_name)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    config = AutoConfig.from_pretrained(model_name)
-    model_input = tokenizer(*([s1], [s2]), padding=True, return_tensors="pt")
-    with torch.no_grad():
-        output = model(**model_input)
-        score = output[0][0].detach().numpy().item()
-        return np.round(float(score), 4)
+    return 0.1
 
 # STATES salvos em cada session, pois URLs não podem salvar vazar informação
 LEVEL = 1
