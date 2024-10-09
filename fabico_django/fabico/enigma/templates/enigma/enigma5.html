@@ -1,0 +1,23 @@
+{% extends "enigma/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div style="height: 20px;"></div>
+
+<h1 style="text-align: center;">
+    enigma 5
+</h1>
+
+<div style="height: 20px;"></div>
+
+<form action="{% url 'enigma' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="resposta" name="resposta">
+        <button class="btn btn-outline-primary" type="submit">Enviar</button>
+    </div>
+</form>
+
+
+{% endblock %}

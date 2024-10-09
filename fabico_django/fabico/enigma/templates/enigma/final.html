@@ -1,0 +1,48 @@
+{% extends "enigma/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div style="height: 20px;"></div>
+
+<h1 style="text-align: center;">
+    PARABÉNS
+</h1>
+
+<div style="height: 20px;"></div>
+
+<div>
+    Vocês completaram o enigma! esperamos que tenham se divertido.
+    <br></br>
+    informe abaixo o nome da equipe para registrarmos esse feito
+</div>
+
+<div style="height: 20px;"></div>
+
+<form action="{% url 'enigma' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+
+        <select class="form-select" class="form-control" name="select">
+            <option disabled selected style="color:gray">Selecione a sua equipe</option>
+            <option value="Chimia">Chimia</option>
+            <option value="Churras">Churras</option>
+            <option value="Berga">Berga</option>
+            <option value="Xis">Xis</option>
+        </select>
+        <button class="btn btn-outline-primary" type="submit">Enviar</button>
+    </div>
+
+</form>
+
+{% if message %}
+    <div class="alert alert-success, $green-700" role="alert" style="background-color: #00190d; color:white; outline:none;">
+        <h4 class="alert-heading">Tarefa Concluída!</h4>
+        <p>Equipe {{ message }} está registrada no pódio interno. Os resultados saem no grupo do zap às 22:00!</p>
+        <hr>
+        <p class="mb-0">Até mais!</p>
+        <br>
+    </div>
+{% endif %}
+
+{% endblock %}

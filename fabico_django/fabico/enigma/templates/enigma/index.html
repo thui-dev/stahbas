@@ -1,0 +1,31 @@
+{% extends "enigma/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div style="height: 20px;"></div>
+
+<h1 style="text-align: center;">
+    Instruções:
+</h1>
+
+<div style="height: 20px;"></div>
+
+<div>
+    existem dicas escondidas por esse enigma. elas não são essenciais para a resolução, mas caso encontre-as, elas podem facilitar sua jornada.
+    <br></br>
+    se encontrar uma dica, assuma que ela é verdadeira. não iríamos te sacanear com uma pista falsa.
+    <br></br>
+    <br></br>
+    boa sorte!
+</div>
+
+<div style="height: 20px;"></div>
+
+<form action="{% url 'index' %}" method="post" style="margin: auto; width: 30%">
+    {% csrf_token %}
+    <button class="btn btn-outline-primary" type="submit">Iniciar</button>
+</form>
+
+
+{% endblock %}

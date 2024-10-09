@@ -1,0 +1,50 @@
+{% extends "enigma/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div style="height: 20px;"></div>
+
+<h1 style="text-align: center;">
+    Enigma 2
+    FABICO PARA SEMPRE
+</h1>
+
+<div style="height: 20px;"></div>
+
+<div style="margin: auto; width: 95%; padding: 0px;">
+    <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/instagram.jpg" alt="" width="100%">
+</div>
+
+<div style="height: 20px;"></div>
+
+<div style="margin: auto; width: 95%; padding: 0px;">
+    <img src="{% static 'enigma/-226c84163e2f.jfif' %}" alt="" width="100%">
+</div>
+
+<div style="height: 20px;"></div>
+
+<form action="{% url 'enigma' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="resposta" name="resposta">
+        <button class="btn btn-outline-primary" type="submit">Enviar</button>
+    </div>
+</form>
+
+{% if message1 %}
+    <div class="alert alert-success, $green-700" role="alert" style="background-color: #00190d; color:white; outline:none;">
+        <h4 class="alert-heading">Correto!</h4>
+        <p>Sua Resposta: {{ message1 }}</p>
+        <hr>
+        <p class="mb-0">Solução: {{ message2 }}</p>
+        <br>
+
+        <form action="{% url 'enigma' %}" method="get">
+            {% csrf_token %}
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Continuar</button>
+        </form>
+    </div>
+{% endif %}
+
+{% endblock %}

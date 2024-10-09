@@ -1,0 +1,36 @@
+{% extends "enigma/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div style="height: 20px;"></div>
+
+<h1 style="text-align: center;">
+    Enigma 3
+</h1>
+
+<div style="height: 20px;"></div>
+
+<ol>
+    <li>Animal de estimação mais comum do brasil</li>
+    <li>quando uma banda/artista dá uma pausa de tempo indeterminado</li>
+    <li>time de futebol gaúcho</li>
+    <li>Rainha do pop</li>
+    <li>tem cabeça e tem dente; não é bixo nem gente</li>
+    <li>Sigla de um estado brasileiro do norte</li>
+    <li>há no meio do coração</li>
+    <li>premiação de filmes</li>
+</ol>
+
+<div style="height: 20px;"></div>
+
+<form action="{% url 'enigma' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="resposta" name="resposta">
+        <button class="btn btn-outline-primary" type="submit">Enviar</button>
+    </div>
+</form>
+<br>
+
+{% endblock %}
